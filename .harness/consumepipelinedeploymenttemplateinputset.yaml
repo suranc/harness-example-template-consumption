@@ -1,0 +1,28 @@
+inputSet:
+  name: consume-pipeline-deployment-template-inputset
+  identifier: consumepipelinedeploymenttemplateinputset
+  orgIdentifier: default
+  projectIdentifier: Template_Examples
+  pipeline:
+    identifier: Consume_Deployment_Template
+    template:
+      templateInputs:
+        stages:
+          - stage:
+              identifier: Deploy_Example
+              type: Deployment
+              spec:
+                service:
+                  serviceInputs:
+                    serviceDefinition:
+                      type: Kubernetes
+                      spec:
+                        manifests:
+                          - manifest:
+                              identifier: helmchart
+                              type: HelmChart
+                              spec:
+                                store:
+                                  type: Github
+                                  spec:
+                                    branch: 1.0.0
