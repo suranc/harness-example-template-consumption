@@ -1,0 +1,29 @@
+pipeline:
+  name: Consume Deployment Template
+  identifier: Consume_Deployment_Template
+  template:
+    templateRef: Example_Pipeline_Template
+    versionLabel: 1.0.0
+    templateInputs:
+      stages:
+        - stage:
+            identifier: Deploy_Example
+            type: Deployment
+            spec:
+              service:
+                serviceInputs:
+                  serviceDefinition:
+                    type: Kubernetes
+                    spec:
+                      manifests:
+                        - manifest:
+                            identifier: helmchart
+                            type: HelmChart
+                            spec:
+                              store:
+                                type: Github
+                                spec:
+                                  branch: <+input>
+  tags: {}
+  projectIdentifier: Template_Examples
+  orgIdentifier: default
