@@ -23,7 +23,7 @@ pipeline:
                               store:
                                 type: Github
                                 spec:
-                                  branch: <+input>
+                                  branch: aefdadsf
   tags: {}
   projectIdentifier: Template_Examples
   orgIdentifier: default
